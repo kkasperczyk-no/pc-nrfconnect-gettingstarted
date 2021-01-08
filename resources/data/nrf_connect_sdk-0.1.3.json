@@ -54,6 +54,74 @@
             "steps": [
                 {
                     "type": "Step",
+                    "platforms": [
+                        { "platform": "darwin" }
+                    ],
+                    "title": "Installing additional tools for Connected Home over IP applications development",
+                    "description": [
+                        "_Note: If you are not interested in the [Connected Home over IP](https://www.connectedhomeip.com/) applications, you can omit steps presented in this section._",
+                        "Download and extract [GN](https://gn.googlesource.com/gn/) build system executable archive used by the Connected Home over IP to generate output files:",
+                        {
+                            "type": "commands",
+                            "description": [
+                                "mkdir ${HOME}/gn && cd ${HOME}/gn",
+                                "wget -O gn.zip https://chrome-infra-packages.appspot.com/dl/gn/gn/mac-amd64/+/latest",
+                                "unzip gn.zip gn",
+                                "rm gn.zip"
+                            ]
+                        },
+                        "Put GN location into the system PATH:",
+                        {
+                            "type": "commands",
+                            "description": [
+                                "echo 'export PATH=${HOME}/gn:\"$PATH\"' >> ${HOME}/.bashrc",
+                                "source ${HOME}/.bashrc"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Step",
+                    "platforms": [
+                        { "platform": "linux" }
+                    ],
+                    "title": "Installing additional tools for Connected Home over IP applications development",
+                    "description": [
+                        "_Note: If you are not interested in the [Connected Home over IP](https://www.connectedhomeip.com/) applications, you can omit steps presented in this section._",
+                        "Download and extract [GN](https://gn.googlesource.com/gn/) build system executable archive used by the Connected Home over IP to generate output files:",
+                        {
+                            "type": "commands",
+                            "description": [
+                                "mkdir ${HOME}/gn && cd ${HOME}/gn",
+                                "wget -O gn.zip https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-amd64/+/latest",
+                                "unzip gn.zip gn",
+                                "rm gn.zip"
+                            ]
+                        },
+                        "Put GN location into the system PATH:",
+                        {
+                            "type": "commands",
+                            "description": [
+                                "echo 'export PATH=${HOME}/gn:\"$PATH\"' >> ${HOME}/.bashrc",
+                                "source ${HOME}/.bashrc"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "checkers": [
+                {
+                    "type": "Checker",
+                    "checkerType": "command",
+                    "commands": "gn --version"
+                }
+            ]
+        },
+        {
+            "type": "Checkable",
+            "steps": [
+                {
+                    "type": "Step",
                     "platforms": { "platform": "all" },
                     "title": "Clone the repositories",
                     "description": [
